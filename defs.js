@@ -67,8 +67,6 @@ customElements.define("video-list", class extends HTMLDivElement {
 
       // FILTER TITLE
       if (props["filter-title"]?.value) {
-        console.log(props["filter-title"].value);
-        console.log(vid.title);
         if (!vid.title.toLowerCase().includes(props["filter-title"].value.toLowerCase())) {
           continue;
         }
