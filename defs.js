@@ -33,7 +33,11 @@ customElements.define("video-list", class extends HTMLDivElement {
         name="title"
         onkeyup="this.parentElement.filterByTitle(event, this.value)"
         value="${props["filter-title"]?.value || ""}"/>
-      <button onclick="this.parentElement.filterByTitle({key:'Enter'},'')">Clear search</button>
+      <button
+        style="margin-left:2vh;"
+        onclick="this.parentElement.filterByTitle({key:'Enter'},'')">
+        Clear search
+      </button>
       <br/><br/>
     `;
 
@@ -50,7 +54,7 @@ customElements.define("video-list", class extends HTMLDivElement {
     }
 
     // ACTUAL LIST
-    html += `<ul class="video-list">`;
+    html += `<br/><br/><div class="video-list">`;
 
     for (let vid of db.videos) {
 
@@ -71,7 +75,7 @@ customElements.define("video-list", class extends HTMLDivElement {
       }
 
       html += `
-        <li class="video-list-item">
+        <div class="video-list-item">
           <img class="icon" src="
           ${vid.tags.includes("youtube")? 'res/youtube.png':''}
           ${vid.tags.includes("vlive")? 'res/vlive.png':''}
@@ -83,13 +87,13 @@ customElements.define("video-list", class extends HTMLDivElement {
       for (let tag of vid.tags) {
         if (tag == "all") {continue}
 
-        html += `<span class="tag-name">${tag}</span>`;
+        html += `<span class="tag-name" style="cursor:default">${tag}</span>`;
       }
 
-      html += `</div></li>`;
+      html += `</div></div>`;
     }
 
-    html += "</ul>";
+    html += "</div>";
 
     this.innerHTML = html;
   }
