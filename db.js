@@ -43,7 +43,7 @@ let db = {
     tags: ["all", "behind", "youtube"]},
 
     {title: `VIVO MOMENTO, VIVIZ "DAZED" MAKING FILM`,
-    link: "https://www.youtube.com/watch?v=vhkLfqqajLw&t=67s",
+    link: "https://www.youtube.com/watch?v=vhkLfqqajLw",
     tags: ["all", "behind", "youtube"]},
 
     {title: `VIVIZ 2022 SEASON'S GREETINGS [VIVIZ Diary] Teaser`,
@@ -59,7 +59,7 @@ let db = {
     tags: ["all", "behind", "youtube"]},
 
     {title: `VIVIZ (비비지) - “2022 SEASON'S GREETINGS” BEHIND THE SCENES`,
-    link: "https://www.youtube.com/watch?v=a8KrY-v92mU&t=239s",
+    link: "https://www.youtube.com/watch?v=a8KrY-v92mU",
     tags: ["all", "behind", "youtube"]},
 
     {title: `VIVIZ (비비지) - VIVIZ의 2022 새해소원은?`,

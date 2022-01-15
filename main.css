@@ -167,7 +167,7 @@ button {
 
 .video-list {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 
   padding: 0;
 }
@@ -178,11 +178,13 @@ button {
   flex-grow: 0;
   flex-shrink: 10;
   
-  background-color: black;
-  background-size: contain;
+  /*background-color: black;*/
+  /*background-image: url("https://i3.ytimg.com/vi/8U58EZADC-o/hqdefault.jpg");*/
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: center right;
 
+  border: 1px solid black;
   border-radius: 5px;
   /*width: 10%;*/
   padding: 2vh;
@@ -198,9 +200,8 @@ button {
   /*cursor: ;*/
 }
 
-.video-list-item:hover,
-.video-list-item:hover a {
-  background: #333;
+.video-list-item:hover {
+  /*background: #333;*/
   /*color: black;*/
-  border: 1px solid border !important;
+  border: 1px solid white !important;
 }

@@ -72,8 +72,23 @@ customElements.define("video-list", class extends HTMLDivElement {
         }
       }
 
+      // THUMBNAIL
+      let thumb = "";
+
+      if (vid.tags.includes("youtube")) {
+        thumb = `https://i3.ytimg.com/vi/${vid.link.split(/watch\?v=/, 2)[1]}/hqdefault.jpg`;
+      } else if (vid.tags.includes("vlive")) {
+        thumb = `res/vlive-thumb.jpg`;
+      }
+
       html += `
-        <div class="video-list-item">
+        <div class="video-list-item"
+        style="
+          background-image:
+            linear-gradient(to right, black 60%, transparent),
+            url('${thumb}');
+        ">
+
           <img class="icon" src="
           ${vid.tags.includes("youtube")? 'res/youtube.png':''}
           ${vid.tags.includes("vlive")? 'res/vlive.png':''}
