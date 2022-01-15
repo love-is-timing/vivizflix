@@ -16,9 +16,6 @@ let db = {
 
     // platform
     "youtube", "vlive",
-
-    // series
-    "VIVI.Zip",
   ],
 
   //------------------------------------------
@@ -36,7 +33,7 @@ let db = {
     
     {title: `[VIVI.Zip] 벌칙은 은하가 받을게 🐰🎃`,
     link: "https://www.youtube.com/watch?v=MQZoMhU9CEI",
-    tags: ["all", "vlog", "youtube", "VIVI.Zip"]},
+    tags: ["all", "vlog", "youtube"]},
 
     {title: `EUNHA(은하) X ADORA(아도라) - "MAKE U DANCE" MAKING FILM`,
     link: "https://www.youtube.com/watch?v=90k7XFSaDrQ",

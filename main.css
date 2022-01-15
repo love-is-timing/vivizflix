@@ -50,7 +50,7 @@ button {
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: space-between;
 
   background: black;
 
@@ -59,35 +59,15 @@ button {
   padding: 1vh;
 }
 
-
-/* BANNER */
-
-.banner {
-  width: 100%;
-  height: 80vh;
-
-  background-image:
-    linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(24, 24, 24, 1)),
-    url("res/banner2.jpg");
-  background-position: bottom;
-  background-size: contain;
-  /*background-attachment: fixed;*/
-  background-repeat: no-repeat;
-
-  overflow: hidden;
+.menu-link {
+  margin: 2vh;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.banner-video {
-  width: 100%;
-}
+/* VIDEO BACKGROUND */
 
-.content {
-  /*position: relative;
-  width: 100%;
-  height: 50vh;
-  overflow: hidden;
-  z-index: -20;*/
-
+.video-background {
   position: fixed;
   min-width: 100vw;
   min-height: 100vh;
@@ -98,16 +78,14 @@ button {
   z-index: -10;
   object-fit: cover;
 }
-.content video {
+.video-background video {
   width: 100%;
   display: block;
   /*transform: translateY(-30vh);*/
 }
-.content:before {
+.video-background:before {
   content: '';
   position: absolute;
-  /*background:
-    linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(24, 24, 24, 1));*/
   background: rgba(0,0,0,0.8);
   top: 0;
   right: 0;
@@ -204,4 +182,30 @@ button {
   /*background: #333;*/
   /*color: black;*/
   border: 1px solid white !important;
+}
+
+/* POPUP */
+
+.popup {
+  display: none;
+
+  position: sticky;
+  bottom: 35vh;
+  width: 30vw;
+  height: 30vh;
+  margin: auto;
+  padding: 5vh;
+
+  background: var(--darkgray);
+
+  border-radius: 5px;
+
+  box-shadow: 0px 0px 50vh 20vh black;
+}
+
+.links-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 6vh;
+  /*text-align: left;*/
 }

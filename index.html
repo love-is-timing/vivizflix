@@ -15,8 +15,8 @@
   </head>
 
   <body>
-    <div class="content">
-      <video class="banner-video" autoplay muted loop>
+    <div class="video-background">
+      <video autoplay muted loop>
         <source src="res/viviz-visualfilm.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -26,11 +26,43 @@
       <a href="https://vivizflix.glitch.me">
         <img class="header-logo" src="res/logo-large-white.png"/>
       </a>
+
+      <a class="menu-link" onclick="openPopup()">
+        About
+      </a>
     </div>
 
     <div
       is="video-list"
       title = "">
     </div>
+
+    <div class="popup" id="popup">
+      <center>
+        <img src="res/logo-large-white.png" width="200"/>
+        <br/>
+        <small>2022 @ love-is-timing</small>
+
+        <ul class="links-list">
+          <li>
+            <span>
+              <img src="res/twitter.png" class="icon" style="margin-right: 1vh"/>
+              <a href="https://twitter.com/love_istiming" target="_blank">
+                @love-istiming
+              </a>
+            </span>
+          </li>
+          <li>
+            <span>
+              <img src="res/github.png" class="icon" style="margin-right: 1vh"/>
+              <a href="https://github.com/love-is-timing/vivizflix" target="_blank">
+                love-is-timing/vivizflix
+              </a>
+            </span>
+          </li>
+        </ul>
+        <a class="menu-link" onclick="closePopup()">Close</a>
+      </center>
+    <div>
   </body>
 </html>
