@@ -11,6 +11,8 @@ async function get(collection = "youtube", filterTag = "", filterTitle = "") {
   .then(raw => raw.json)
   .then(res => {
 
+    console.log(res);
+
     if (filterTag) {
       res = res.map(vid => vid.tags.includes(filterTag))
     }
