@@ -7,9 +7,8 @@
     <link rel="icon" type="image/x-icon" href="res/viviz.ico">
     <link href="main.css" rel="stylesheet"/>
 
-    <script src="db.js"></script>
-    <script src="defs.js"></script>
     <script src="db/db.js"></script>
+    <script src="defs.js"></script>
     <script src="main.js" defer></script>
 
     <title>vivizflix</title>
@@ -33,9 +32,17 @@
       </a>
     </div>
 
+    <h2 style="margin: 2vh">Youtube</h2>
     <div
       is="video-list"
-      title = "">
+      collection="youtube"
+      >
+    </div>
+
+    <h2 style="margin: 2vh">Vlive</h2>
+    <div
+      is="video-list"
+      collection="vlive">
     </div>
 
     <div class="popup" id="popup">

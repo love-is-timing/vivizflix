@@ -21,12 +21,23 @@ customElements.define("video-list", class extends HTMLDivElement {
     }
   }
 
-  update() {
+  async update() {
     let props = this.attributes;
+    let platform = props.collection?.value || "youtube";
 
-    // TITLE
+    let videos = await get(
+      platform || "",
+      props["filter-tag"]?.value || "",
+      props["filter-title"]?.value || "",
+      props.short ?? false
+    );
+
+    let tags = await get(
+      `${platform}-tags`
+    );
+
+    // SEARCH
     let html = `
-      <h2 class="video-list-title">${props.title?.value ?? "Title"}</h2>
       <span style="margin-right: 2vh">Search:</span>
       <input
         type="text"
@@ -38,46 +49,33 @@ customElements.define("video-list", class extends HTMLDivElement {
         onclick="this.parentElement.filterByTitle({key:'Enter'},'')">
         Clear search
       </button>
-      <br/><br/>
     `;
 
     // TAGS
-    html += `<span style="margin-right: 2vh">Filter:</span>`;
+    if (!props["hide-tags"] ?? false) {
+      html += `<br/><br/><span style="margin-right: 2vh">Filter:</span>`;
 
-    for (let tag of db.tags) {
-      html += `
-        <a ${props["filter-tag"]?.value == tag? 'class = "selected-tag"': 'class="tag-name"'}
-        onclick="this.parentElement.filterByTag('${tag}')">
-          ${tag}
-        </a>
-      `;
+      for (let tag of tags) {
+        html += `
+          <a ${props["filter-tag"]?.value == tag? 'class = "selected-tag"': 'class="tag-name"'}
+          onclick="this.parentElement.filterByTag('${tag}')">
+            ${tag}
+          </a>
+        `;
+      }
     }
 
     // ACTUAL LIST
     html += `<br/><br/><div class="video-list">`;
 
-    for (let vid of db.videos) {
-
-      // FILTER TAG
-      if (props["filter-tag"]?.value) {
-        if (!vid.tags.includes(props["filter-tag"].value)) {
-          continue;
-        }
-      }
-
-      // FILTER TITLE
-      if (props["filter-title"]?.value) {
-        if (!vid.title.toLowerCase().includes(props["filter-title"].value.toLowerCase())) {
-          continue;
-        }
-      }
+    for (let vid of videos) {
 
       // THUMBNAIL
       let thumb = "";
 
-      if (vid.tags.includes("youtube")) {
+      if (platform == "youtube") {
         thumb = `https://i3.ytimg.com/vi/${vid.link.split(/watch\?v=/, 2)[1]}/hqdefault.jpg`;
-      } else if (vid.tags.includes("vlive")) {
+      } else if (platform == "vlive") {
         thumb = `res/vlive-thumb.jpg`;
       }
 
@@ -90,8 +88,8 @@ customElements.define("video-list", class extends HTMLDivElement {
         ">
 
           <img class="icon" src="
-          ${vid.tags.includes("youtube")? 'res/youtube.png':''}
-          ${vid.tags.includes("vlive")? 'res/vlive.png':''}
+          ${platform == "youtube"? 'res/youtube.png':''}
+          ${platform == "vlive"? 'res/vlive.png':''}
           "/>
           <a href="${vid.link}" target="_blank"><h4>${vid.title}</h4></a>
           <div style="display: flex; flex-direction: row; flex-wrap: wrap; flex-grow: 0">
