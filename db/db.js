@@ -14,11 +14,11 @@ async function get(collection = "youtube", filterTag = "", filterTitle = "") {
     console.log(res);
 
     if (filterTag) {
-      res = res.map(vid => vid.tags.includes(filterTag))
+      res = res.filter(vid => vid.tags.includes(filterTag))
     }
 
     if (filterTitle) {
-      res = res.map(vid => vid.title.toLowerCase().includes(filterTitle.toLowerCase()))
+      res = res.filter(vid => vid.title.toLowerCase().includes(filterTitle.toLowerCase()))
     }
 
     result = res;
