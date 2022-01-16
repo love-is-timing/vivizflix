@@ -7,7 +7,7 @@
 async function get(collection = "youtube", filterTag = "", filterTitle = "") {
   let result;
 
-  await fetch(`${collection}.json`)
+  await fetch(`db/${collection}.json`)
   .then(raw => raw.json)
   .then(res => {
 
